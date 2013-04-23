@@ -1,28 +1,3 @@
-/*
-    Simple program to demonstrate file I/O and 
-    how to access command line arguments.  For example:
-
-        $ mycat myinput 
-
-    "myinput" is specified on the command line when the program mycat is started.
-
-    This string (called a command line argument) is available in the main() 
-
-    This program is similar to the Linux cat program.  It accepts a single
-    command line argument (the name of a file), then it opens the file and 
-    reads each line from the file and writes that line to standard output
-
-        $ cat myfile
-        one
-        two
-        three
-        $ mycat myfile
-        one
-        two
-        three
-        $
-
-*/
 
 #include <iostream>
 #include <fstream>
@@ -30,16 +5,12 @@
 
 using namespace std;
 
-// in order to access the command line arguments, declare main() like this
+
 int main(int argc, char *argv[])
 {
     int tabcount = 0;
     char character;
     string spaces = "    ";
-    // make sure a filename was specified on the command line
-    // argc tells us how many command line arguments were given
-    // "2" means that no command line arguments were given
-    // (the first argument is the name of the executable)
     if (argc < 3)
     {
         // write to standar error (cerr)
@@ -72,7 +43,7 @@ int main(int argc, char *argv[])
     // as long as there is more input (not end of file), read a character
     while(infile.peek() != EOF)
     {
-        character = infile.get()
+        character = infile.get();
         if(character == '\t')
         {
             outfile << spaces;
@@ -83,6 +54,6 @@ int main(int argc, char *argv[])
             outfile << character;
     }
 
-    cout << "Found " << tabcount << " tabs."
+    cout << "Found " << tabcount << " tabs.";
     return 0; // everything is ok
 }
